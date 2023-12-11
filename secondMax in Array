@@ -1,0 +1,43 @@
+public class MyClass {  
+    
+    public static int secondH(int arr[]) {
+        
+        int max = Integer.MIN_VALUE;
+        int sMax = Integer.MIN_VALUE;
+        
+        if(arr.length == 0) {
+            return -1;
+        }
+        
+        boolean isSame = true;
+        
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] != arr[0]) {
+                isSame = false;
+                break;
+            }
+        }
+        
+        if(isSame) {
+            return -1;
+        }
+        
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] > max) {
+                sMax = max;
+                max = arr[i];
+            }
+            
+            if(arr[i] > sMax && arr[i] != max) {
+                sMax = arr[i];
+            }
+        }
+        return sMax;
+    }
+    
+    public static void main(String args[]) {
+      int arr[]= {1,3,6,6,4,4,6};
+
+      System.out.println(secondH(arr));
+    }
+}
