@@ -1,0 +1,51 @@
+import java.util.*;
+public class MyClass {
+    
+    // O(n^2)
+    public static void pairSum(ArrayList<Integer> arr, int target) {
+        
+        for(int i=0; i<arr.size(); i++) {
+            for(int j=i+1; j<arr.size(); j++) {
+                if((arr.get(i)+arr.get(j)) == target) {
+                    System.out.print(arr.get(i)+" , "+arr.get(j));
+                }
+                System.out.println();
+            }
+        }
+    }
+    
+    // O(n)
+    public static boolean pairSum2(ArrayList<Integer> arr, int target) {
+        
+        int lp = 0;
+        int rp = arr.size()-1;
+        
+        while(lp < rp) {
+            
+            if((arr.get(lp)+arr.get(rp)) == target) {
+                // System.out.print(arr.get(lp)+" , "+arr.get(rp));
+                return true;
+            }
+            
+            if((arr.get(lp)+arr.get(rp)) < target) {
+                lp++;
+            }
+            else {
+                rp--;
+            }
+        }
+        return false;
+    }
+    
+    public static void main(String args[]) {
+      ArrayList<Integer> arr = new ArrayList<>();
+
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        
+        System.out.println(pairSum2(arr, 5));
+    }
+}
