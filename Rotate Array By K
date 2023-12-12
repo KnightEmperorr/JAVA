@@ -1,3 +1,4 @@
+// with using temperory ArrayList Space
 import java.util.*;
 public class MyClass {
     
@@ -30,5 +31,50 @@ public class MyClass {
         }
         
         System.out.println(arr);
+    }
+}
+
+
+//without using temperory ArrayList Space
+//don't confused with temp variable
+import java.util.*;
+public class MyClass {
+    
+    public static void swap(ArrayList<Integer> arr, int start, int end) {
+
+        while(start < end) {
+            int temp = arr.get(start);
+            arr.set(start, arr.get(end));
+            arr.set(end, temp);
+
+            start++;
+            end--;
+    }
+    }
+    
+    public static void main(String args[]) {
+        
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        arr.add(6);
+        
+        int k=4;
+        
+        if(k == 1) {
+            swap(arr, 0, k-1);
+        }
+        
+     int n = arr.size();
+        swap(arr, 0, k-1);
+        swap(arr, k, n-1);
+        swap(arr, 0, n-1);
+
+        for(int i=0; i<n; i++) {
+            System.out.print(arr.get(i));
+        }
     }
 }
