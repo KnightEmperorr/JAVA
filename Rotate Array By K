@@ -63,12 +63,14 @@ public class MyClass {
         arr.add(6);
         
         int k=4;
+
+    int n = arr.size();
+      k = k % n;
         
         if(k == 1) {
             swap(arr, 0, k-1);
         }
         
-     int n = arr.size();
         swap(arr, 0, k-1);
         swap(arr, k, n-1);
         swap(arr, 0, n-1);
